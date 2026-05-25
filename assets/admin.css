@@ -1,0 +1,78 @@
+/* ECFI CF Workflow — admin screen styles */
+
+/* Status badges */
+.ecfi-cfw-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 3px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	line-height: 1.6;
+}
+
+.ecfi-cfw-badge--active {
+	background: #d1e7dd;
+	color: #0f5132;
+}
+
+.ecfi-cfw-badge--revoked {
+	background: #f8d7da;
+	color: #842029;
+}
+
+/* Row action forms — make submit buttons look like text links */
+.ecfi-cfw-row-action-form {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.ecfi-cfw-row-action-form button.button-link {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	color: #0073aa;
+	cursor: pointer;
+	font-size: 13px;
+	text-decoration: none;
+	font-family: inherit;
+	line-height: inherit;
+}
+
+.ecfi-cfw-row-action-form button.button-link:hover,
+.ecfi-cfw-row-action-form button.button-link:focus {
+	color: #0096dd;
+	text-decoration: underline;
+}
+
+/* Copy link button */
+.ecfi-copy-link {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	color: #0073aa;
+	cursor: pointer;
+	font-size: 13px;
+	font-family: inherit;
+	line-height: inherit;
+	text-decoration: none;
+}
+
+.ecfi-copy-link:hover,
+.ecfi-copy-link:focus {
+	color: #0096dd;
+	text-decoration: underline;
+}
+
+.ecfi-copy-link.copied {
+	color: #46b450;
+}
+
+.ecfi-copy-link.copied::after {
+	content: " \2713";
+	font-size: 11px;
+}
