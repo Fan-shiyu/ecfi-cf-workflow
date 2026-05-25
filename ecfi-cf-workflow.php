@@ -25,6 +25,11 @@ define( 'ECFI_CF_WORKFLOW_URL', plugin_dir_url( __FILE__ ) );
 
 require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-database.php';
 require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-activator.php';
+require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-collaborator.php';
+require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-audit-log.php';
+require_once ECFI_CF_WORKFLOW_DIR . 'admin/class-ecfi-cfw-admin.php';
+require_once ECFI_CF_WORKFLOW_DIR . 'admin/class-ecfi-cfw-collaborators-page.php';
+require_once ECFI_CF_WORKFLOW_DIR . 'admin/class-ecfi-cfw-collaborators-list-table.php';
 
 /**
  * Runs on plugin activation.
@@ -32,7 +37,7 @@ require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-activator.php';
  * @return void
  */
 function ecfi_cf_workflow_activate(): void {
-    ECFI_CFW_Activator::activate();
+	ECFI_CFW_Activator::activate();
 }
 register_activation_hook( __FILE__, 'ecfi_cf_workflow_activate' );
 
@@ -42,10 +47,13 @@ register_activation_hook( __FILE__, 'ecfi_cf_workflow_activate' );
  * @return void
  */
 function ecfi_cf_workflow_deactivate(): void {
-    // TODO: flush_rewrite_rules().
+	// Data is intentionally preserved on deactivation.
 }
 register_deactivation_hook( __FILE__, 'ecfi_cf_workflow_deactivate' );
 
-// TODO: instantiate the main plugin class once includes/class-ecfi-cf-workflow.php exists.
-// require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cf-workflow.php';
-// ECFI_CF_Workflow::get_instance();
+add_action(
+	'plugins_loaded',
+	static function () {
+		new ECFI_CFW_Admin();
+	}
+);
