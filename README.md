@@ -25,7 +25,7 @@ Planned features:
 - WordPress 6.0+
 - PHP 7.4+
 - [Advanced Custom Fields (ACF)](https://www.advancedcustomfields.com/) — free or Pro
-- ACF Extended (for taxonomy field support)
+- ACF (free version sufficient; taxonomy field support is built-in from ACF 6.0+)
 
 ## Installation
 
@@ -39,35 +39,39 @@ Planned features:
 
 > Development setup instructions will be added as the project matures.
 
-**Prerequisites:** Local WordPress environment (e.g. [LocalWP](https://localwp.com/)), Composer, Node.js.
+**Prerequisites:** Local WordPress environment (e.g. [LocalWP](https://localwp.com/)) with ACF installed.
 
 ```bash
 # Clone into your wp-content/plugins directory
-git clone https://github.com/felicityfan/ecfi-cf-workflow.git
-
-# Install PHP dependencies (when composer.json is added)
-composer install
-
-# Install JS dependencies (when package.json is added)
-npm install
+git clone https://github.com/Fan-shiyu/ecfi-cf-workflow.git
 ```
 
 ## Roadmap
 
 - **Phase 1 — Foundation**
-  - Plugin scaffold and constants
-  - Custom DB table for change proposals
-  - Basic submission form (public-facing)
+  - Plugin scaffold and custom database tables
+  - Collaborator management (tokens, organisation assignments)
+  - Tokenised landing page with name/position capture
+  - Edit form for assigned foundation(s)
+  - Pending changes table and basic admin review dashboard
+  - Basic audit log
 
-- **Phase 2 — Review Workflow**
-  - Admin review queue
-  - Diff view for proposed vs. current field values
-  - Email notifications (submission, approval, rejection)
+- **Phase 2 — Review UX polish**
+  - Side-by-side "old → new" diff display
+  - Per-field accept/reject in review dashboard
+  - Highlighted changed fields
+  - Add new foundation flow
 
-- **Phase 3 — Polish & Integration**
-  - Audit log UI
-  - Role & capability management
-  - Export to CSV / upstream sync hook
+- **Phase 3 — Operational features**
+  - Session-based email notifications to admin (requires SMTP)
+  - Multi-organisation per collaborator
+  - Collaborator-facing submission history
+  - Admin screen for managing collaborators and tokens
+
+- **Phase 4 — Later**
+  - Table-view editing for bulk updates
+  - Full version history browsing
+  - Public submission form integration (if needed)
 
 ## License
 
