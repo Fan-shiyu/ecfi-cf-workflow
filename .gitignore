@@ -1,0 +1,22 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Environment & secrets
+.env
+.env.*
+wp-config.php
+
+# Build artifacts
+*.zip
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
