@@ -23,16 +23,16 @@ define( 'ECFI_CF_WORKFLOW_VERSION', '0.1.0' );
 define( 'ECFI_CF_WORKFLOW_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ECFI_CF_WORKFLOW_URL', plugin_dir_url( __FILE__ ) );
 
+require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-database.php';
+require_once ECFI_CF_WORKFLOW_DIR . 'includes/class-ecfi-cfw-activator.php';
+
 /**
  * Runs on plugin activation.
- *
- * Reserved for creating custom DB tables and flushing rewrite rules.
  *
  * @return void
  */
 function ecfi_cf_workflow_activate(): void {
-    // TODO: create custom DB tables.
-    // TODO: flush_rewrite_rules().
+    ECFI_CFW_Activator::activate();
 }
 register_activation_hook( __FILE__, 'ecfi_cf_workflow_activate' );
 
